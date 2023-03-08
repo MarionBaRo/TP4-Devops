@@ -137,7 +137,7 @@ public class MyUnsortedList<E> implements UnsortedList<E> {
         Link<E> thisLink = this.head;
         Link<E> thatLink = that.head;
         while (thisLink != null) {
-            if (thatLink == null || !thisLink.element.equals(thatLink.element)) {
+            if (thatLink == null || thisLink.element==null ||!thisLink.element.equals(thatLink.element)) {
                 return false;
             }
             thisLink = thisLink.next;

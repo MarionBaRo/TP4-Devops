@@ -7,19 +7,19 @@ import org.junit.Test;
 public class MyUnsortedListTest {
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------equals()----------------------------------------*/
+	/*------------------------EQUALS()----------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
 	public void testEqualsNotList(){
-		// throws exception : can't pop from an empty list
+		// Tests equals on 2 differents types (list/not list)
 		UnsortedList<Integer> integersEqualsInteger = MyUnsortedList.of(1,2,3,4);
 		assertEquals(false,integersEqualsInteger.equals(1));
 	}
 	
 	@Test
 	public void testEqualsNotSametype(){
-		// throws exception : can't pop from an empty list
+		// Tests equals on 2 differents types (both list)
 		UnsortedList<Integer> integersEqualsInteger = MyUnsortedList.of(1,2,3,4);
 		UnsortedList<String> integersEqualsString = MyUnsortedList.of("a","b","c");
 		assertEquals(false,integersEqualsInteger.equals(integersEqualsString));
@@ -27,16 +27,16 @@ public class MyUnsortedListTest {
 	
 	@Test
 	public void testEqualsEmpty(){
-		// throws exception : can't pop from an empty list
+		// Tests equals on 2 UnsortedList<Integer>, one empty, the other not
 		UnsortedList<Integer> integersEqualsInteger = MyUnsortedList.of(1);
-		UnsortedList<String> integersEqualsString = MyUnsortedList.of();
+		UnsortedList<Integer> integersEqualsString = MyUnsortedList.of();
 		integersEqualsString.insert(null, 0);
 		assertEquals(false,integersEqualsInteger.equals(integersEqualsString));
 	}
 	
 	@Test
 	public void testEqualsNull(){
-		// throws exception : can't pop from an empty list
+		// Tests equals on 2 UnsortedList initialy empty, adding a null head and a non-null head.
 		UnsortedList<Integer> integersEqualsInteger = MyUnsortedList.of();
 		integersEqualsInteger.insert(null, 0);
 		UnsortedList<String> integersEqualsString = MyUnsortedList.of();
@@ -45,7 +45,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------isEMPTY-----------------------------------------*/
+	/*------------------------isEMPTY()---------------------------------------*/
 	/*------------------------------------------------------------------------*/
 		
 	@Test
@@ -60,7 +60,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------SIZE--------------------------------------------*/
+	/*------------------------SIZE()------------------------------------------*/
 	/*------------------------------------------------------------------------*/
 
 	@Test
@@ -75,7 +75,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------PREPEND-----------------------------------------*/
+	/*------------------------PREPEND()---------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
@@ -96,7 +96,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------APPEND-----------------------------------------*/
+	/*------------------------APPEND()----------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
@@ -116,7 +116,7 @@ public class MyUnsortedListTest {
 		assertEquals(integersEmpty2,integersEmpty1);
 	}
 	
-	/*------------------------INSERT------------------------------------------*/
+	/*------------------------INSERT()----------------------------------------*/
 	/*-----------------NON EMPTY LISTS----------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	@Test
@@ -165,7 +165,7 @@ public class MyUnsortedListTest {
 		integersInsertTooLow.insert(5, -1);		
 	}
 	
-	/*------------------------INSERT------------------------------------------*/
+	/*------------------------INSERT()----------------------------------------*/
 	/*---------------------EMPTY LISTS----------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
@@ -189,12 +189,12 @@ public class MyUnsortedListTest {
 	public void testInsertEmptyTooLow() throws Exception{
 		/* --- on lists empty ---- */
 		// throws exception : invalid position (too low)
-		UnsortedList<Integer> integersInsertEmptyTooLow = MyUnsortedList.of(1, 2, 3, 4);
+		UnsortedList<Integer> integersInsertEmptyTooLow = MyUnsortedList.of();
 		integersInsertEmptyTooLow.insert(5, -1);		
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------------POP---------------------------------------*/
+	/*------------------------------POP()-------------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
@@ -216,7 +216,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------------POP Last----------------------------------*/
+	/*------------------------------POP LAST()--------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
@@ -238,7 +238,7 @@ public class MyUnsortedListTest {
 	}
 	
 	/*------------------------------------------------------------------------*/
-	/*------------------------------REMOVE------------------------------------*/
+	/*------------------------------REMOVE()----------------------------------*/
 	/*------------------------------------------------------------------------*/
 	
 	@Test
